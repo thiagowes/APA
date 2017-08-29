@@ -1,6 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
-
 
 int Particiona(int *array, int ini, int fim){
     
