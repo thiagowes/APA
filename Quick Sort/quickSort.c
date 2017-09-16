@@ -5,19 +5,15 @@ int Particiona(int *array, int ini, int fim){
       int esq = ini, dir = fim, pivo = array[ini], aux;
 
       while(esq < dir){
-<<<<<<< HEAD
-	//incrementa até encontrar um número menor ou igual o pivo
-	while(array[esq] <= pivo)
-	  esq++;
-	//decrementa até encontrar um número maior que o pivo
-=======
+
 	//incrementa até encontrar um número maior que o pivo
 	while(array[esq] <= pivo)
 	  esq++;
+
 	//decrementa até encontrar um número menor ou igual o pivo
->>>>>>> 5c13cb4e70c0d93ab7ec11cddca398879068a332
 	while(array[dir] > pivo)
 	  dir--;
+
 	//executa a troca, colocando o menor a esquerda do pivo e o maior a direita
 	if(esq < dir){
 	  aux = array[esq];
