@@ -41,7 +41,7 @@ void Dijkstra::BuildMatrixAdj(vector<vector<int> > &M, char *nameTxt){
 }
 
 void Dijkstra::DijkstraAlgorithm(vector<vector<int> > M, int root){
-	int k = 0, auxPath;
+	int auxPath, costT = 0;
 	MinHeap minH;
 	vertex minV;
 	vector<vector<int> > allPath;
@@ -77,12 +77,8 @@ void Dijkstra::DijkstraAlgorithm(vector<vector<int> > M, int root){
 		minV = minH.HeapExtractMin(auxV);
 		root = minV.id;
 
-		k++;
-
-		if(k < auxV.size()){
-			for(int i = 0; i < auxV.size(); i++)
-				auxV.erase(auxV.begin());
-		}
+		for(int i = 1; i < auxV.size(); i++)
+			auxV.erase(auxV.begin());
 	}
 
 	for(int i = 0; i < allPath.size(); i++){
@@ -98,6 +94,7 @@ void Dijkstra::DijkstraAlgorithm(vector<vector<int> > M, int root){
 	}	
 	
 	for(int i = 0; i < V.size(); i++){
+		costT += V[i].cost;
 		if(V[i].cost < 10)
 			cout << "Vertice: " << V[i].id << "\t" << "Cost: " << V[i].cost << "\t\t" << "All Path: ";	
 		else
@@ -106,6 +103,8 @@ void Dijkstra::DijkstraAlgorithm(vector<vector<int> > M, int root){
 			cout << allPath[i][j] << " ";
 		cout << endl;
 	}
+
+	cout << endl << "Total Cost: " << costT << endl;
 				
 }
 

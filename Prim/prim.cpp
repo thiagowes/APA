@@ -41,7 +41,7 @@ void Prim::BuildMatrixAdj(vector<vector<int> > &M, char *nameTxt){
 }
 
 void Prim::PrimAlgorithm(vector<vector<int> > M, int root){
-	int k = 0, costT = 0;
+	int costT = 0;
 	MinHeap minH;
 	vertex minV;
 	vector<vertex> V;
@@ -75,12 +75,8 @@ void Prim::PrimAlgorithm(vector<vector<int> > M, int root){
 		minV = minH.HeapExtractMin(auxV);
 		root = minV.id;
 
-		k++;
-
-		if(k < auxV.size()){
-			for(int i = 0; i < auxV.size(); i++)
-				auxV.erase(auxV.begin());
-		}
+		for(int i = 1; i < auxV.size(); i++)
+			auxV.erase(auxV.begin());
 	}	
 	
 	for(int i = 0; i < V.size(); i++){
