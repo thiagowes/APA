@@ -41,7 +41,7 @@ void Dijkstra::BuildMatrixAdj(vector<vector<int> > &M, char *nameTxt){
 }
 
 void Dijkstra::DijkstraAlgorithm(vector<vector<int> > M, int root){
-	int auxPath;
+	int auxPath, sizeAux;
 	MinHeap minH;
 	vertex minV;
 	vector<vector<int> > allPath;
@@ -74,10 +74,13 @@ void Dijkstra::DijkstraAlgorithm(vector<vector<int> > M, int root){
 		}
 
 		minH.BuildMinHeap(auxV);
-		minV = minH.HeapExtractMin(auxV);
+		if(auxV.size() > 0)
+			minV = minH.HeapExtractMin(auxV);
 		root = minV.id;
 
-		for(int i = 1; i < auxV.size(); i++)
+		sizeAux = auxV.size();
+
+		for(int i = 0; i < sizeAux; i++)
 			auxV.erase(auxV.begin());
 	}
 
