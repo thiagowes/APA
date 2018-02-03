@@ -88,13 +88,11 @@ void Dijkstra::DijkstraAlgorithm(vector<vector<int> > M, int root){
 		auxPath = V[i].path;
 		allPath[i].push_back(i);
 	
-		while(auxPath > 0){
+		while(auxPath >= 0){
 			allPath[i].push_back(auxPath);
 			auxPath = V[auxPath].path;
-		}
-		if(i != 0)
-			allPath[i].push_back(0);		
-	}	
+		}	
+	}		
 	
 	for(int i = 0; i < V.size(); i++){
 		if(V[i].cost < 10)
